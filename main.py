@@ -22,12 +22,11 @@ pycom.heartbeat(False)
 lora = LoRa(mode=LoRa.LORAWAN)
 
 # create an OTAA authentication parameters
-app_eui = binascii.unhexlify('70B3D57ED000D3E6')
+app_eui = binascii.unhexlify('0101010101010101')
 app_key = binascii.unhexlify('52FCF7AD40BE3F1437166E4ECD46183D')
-dev_eui = binascii.unhexlify('70B3D54996BEF8B1')
+dev_eui = binascii.unhexlify('0101010101010101')
 
 print("AppEUI: %s" % (binascii.hexlify(app_eui)))
-
 print("AppKey: %s" % (binascii.hexlify(app_key)))
 
 # lora join a network using OTAA (Over the Air Activation)
