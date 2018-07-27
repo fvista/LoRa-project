@@ -47,8 +47,15 @@ pycom.rgbled(0x001400)
 # create a LoRa socket
 s = socket.socket(socket.AF_LORA, socket.SOCK_RAW)
 
-# set the LoRaWAN data rate
-s.setsockopt(socket.SOL_LORA, socket.SO_DR,0)
+# set the LoRaWAN data rate: 
+# DR | SF
+# 5  | 7
+# 4  | 8
+# 3  | 9
+# 2  | 10
+# 1  | 11
+# 0  | 12
+s.setsockopt(socket.SOL_LORA, socket.SO_DR,5)
 
 
 s.setblocking(True)
