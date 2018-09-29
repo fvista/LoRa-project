@@ -43,6 +43,14 @@ while not lora.has_joined():
 print('OTAA joined')
 pycom.rgbled(0x001400)
 
+# to have only one channel:
+for index in range (0,16):
+  lora.remove_channel(index)
+
+lora.add_channel(index=0, frequency=868100000, dr_min=0, dr_max=5)
+lora.add_channel(index=1, frequency=868100000, dr_min=0, dr_max=5)
+lora.add_channel(index=2, frequency=868100000, dr_min=0, dr_max=5)
+
 # create a LoRa socket
 s = socket.socket(socket.AF_LORA, socket.SOCK_RAW)
 
@@ -90,4 +98,4 @@ for n in range(1,601):
   print(n)
   time.sleep(0.5)
   pycom.rgbled(0x001400)
-  time.sleep(2.5)
+  time.sleep(3.5)
